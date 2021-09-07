@@ -10,5 +10,11 @@
             ReadSingleBook readSingleBook = new ReadSingleBook(book);
             readSingleBook.Read();
         }
+
+        public void Create()
+        {
+            CreateBook createBook = new CreateBook();
+            createBook.Render();
+        }
     }
 }

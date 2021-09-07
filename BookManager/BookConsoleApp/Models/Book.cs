@@ -2,6 +2,9 @@
 
 namespace BookConsoleApp.Models
 {
+    /// <summary>
+    /// Lớp Mô tả sách
+    /// </summary>
     public class Book
     {
         private string _bookTitle;
@@ -11,10 +14,7 @@ namespace BookConsoleApp.Models
         private int _edition;
         private string _description;
         
-        public Book()
-        {
-            
-        }
+        public Book() {}
 
         public Book(string bookTitle)
         {
@@ -46,7 +46,11 @@ namespace BookConsoleApp.Models
         {
             Description = description;
         }
-
+        
+        /// <summary>
+        /// Tiêu đề sách
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public string BookTitle
         {
             get => _bookTitle;
@@ -62,7 +66,11 @@ namespace BookConsoleApp.Models
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Mã số định danh của sách
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public int IdBook
         {
             get => _idBook;
@@ -78,13 +86,20 @@ namespace BookConsoleApp.Models
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Nhà xuất bản sách
+        /// </summary>
         public string Publisher
         {
             get => _publisher;
             set => _publisher = value;
         }
-
+        
+        /// <summary>
+        /// Năm xuất bản
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public int YearRealease
         {
             get => _yearRealease;
@@ -100,7 +115,11 @@ namespace BookConsoleApp.Models
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Số lần tái bản của sách
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public int Edition
         {
             get => _edition;
@@ -116,7 +135,10 @@ namespace BookConsoleApp.Models
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Mô tả của sách
+        /// </summary>
         public string Description
         {
             get => _description;
