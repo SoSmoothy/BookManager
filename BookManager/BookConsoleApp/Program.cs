@@ -24,6 +24,9 @@ namespace BookConsoleApp
                     case "create":
                         bookController.Create();
                         break;
+                    case "clear":
+                        Console.Clear();
+                        break;
                     default:
                         Console.WriteLine("Error 404");
                         break;

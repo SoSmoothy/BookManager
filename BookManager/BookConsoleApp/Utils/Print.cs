@@ -4,18 +4,24 @@ namespace BookConsoleApp.Utils
 {
     public class Print
     {
-        public static void SendNewLine(string message, ConsoleColor color)
+        public static void SendNewLine(string message, ConsoleColor color, bool resetColor = true)
         {
             Console.ForegroundColor = color;
             Console.WriteLine(message);
-            Console.ResetColor();
+            if (resetColor)
+            {
+                Console.ResetColor();
+            }
         }
         
-        public static void Send(string message, ConsoleColor color)
+        public static void Send(string message, ConsoleColor color, bool resetColor = true)
         {
             Console.ForegroundColor = color;
             Console.Write(message);
-            Console.ResetColor();
+            if (resetColor)
+            {
+                Console.ResetColor();
+            }
         }
     }
 }
