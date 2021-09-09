@@ -16,5 +16,12 @@
             CreateBook createBook = new CreateBook();
             createBook.Render();
         }
+
+        public void Update()
+        {
+            Book book = new Book();
+            BookUpdateView bookUpdateView = new BookUpdateView(book);
+            bookUpdateView.Render();
+        }
     }
 }

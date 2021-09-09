@@ -24,6 +24,9 @@ namespace BookConsoleApp
                     case "create":
                         bookController.Create();
                         break;
+                    case "update":
+                        bookController.Update();
+                        break;
                     case "clear":
                         Console.Clear();
                         break;

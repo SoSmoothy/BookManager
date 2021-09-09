@@ -13,8 +13,16 @@ namespace BookConsoleApp.Models
         private int _yearRealease;
         private int _edition;
         private string _description;
-        
-        public Book() {}
+
+        public Book()
+        {
+            _bookTitle = "Chưa có tiêu đề";
+            _idBook = 2002;
+            _publisher = "Nhà xuất bản không có";
+            _yearRealease = 1945;
+            _edition = 1;
+            _description = "Không có mô tả";
+        }
 
         public Book(string bookTitle)
         {

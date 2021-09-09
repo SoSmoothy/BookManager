@@ -1,4 +1,5 @@
 ﻿using System;
+using BookConsoleApp.Framework;
 
 namespace BookConsoleApp.Views
 {
@@ -30,29 +31,17 @@ namespace BookConsoleApp.Views
         {
             if (_model == null)
             {
-                WriteLine("No Book Found", ConsoleColor.Red);
+                ViewHelp.WriteLine("No Book Found", ConsoleColor.Red);
                 return;
             }
             
-            WriteLine("Book Detail Info: ", ConsoleColor.Green);
+            ViewHelp.WriteLine("Book Detail Info: ", ConsoleColor.Green);
             
             Console.WriteLine($"Title: {_model.BookTitle}");
             Console.WriteLine($"ID: {_model.IdBook}");
             Console.WriteLine($"Publisher: {_model.Publisher}");
             Console.WriteLine($"Year Release: {_model.YearRealease}");
             Console.WriteLine($"Edition: {_model.Edition}");
-        }
-        
-        /// <summary>
-        /// In ra màn hình với màu
-        /// </summary>
-        /// <param name="message">Chuỗi cần xuất ra màn hình</param>
-        /// <param name="color">Màu</param>
-        protected void WriteLine(string message, ConsoleColor color)
-        {
-            Console.ForegroundColor = color;
-            Console.WriteLine(message);
-            Console.ResetColor();
         }
     }
 }
