@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Text;
-using BookConsoleApp.Controllers;
 
 namespace BookConsoleApp
 {
+    using Controllers;
+    using DataServices;
     class Program
     {
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            BookController bookController = new BookController();
+            SimpleDataAccess context = new SimpleDataAccess();
+            BookController bookController = new BookController(context);
 
             while (true)
             {
@@ -19,13 +21,16 @@ namespace BookConsoleApp
                 switch (request)
                 {
                     case "single":
-                        bookController.Single();
+                        bookController.Single(1);
                         break;
                     case "create":
                         bookController.Create();
                         break;
                     case "update":
-                        bookController.Update();
+                        bookController.Update(1);
+                        break;
+                    case "list":
+                        bookController.List();
                         break;
                     case "clear":
                         Console.Clear();

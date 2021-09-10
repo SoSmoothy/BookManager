@@ -12,11 +12,11 @@ namespace BookConsoleApp.Views
             string title, publisher, description;
             int id, yearRelease, edition;
             
-            ViewHelp.WriteLine("Create New Book:", ConsoleColor.Green);
+            ViewHelp.WriteLine("Thêm sách mới:", ConsoleColor.Green);
             
-            title = ViewHelp.InputString("Title: ");
-            id = ViewHelp.InputInt("ID: ");
-            publisher = ViewHelp.InputString("Nhà Xuất Bản: ");
+            title = ViewHelp.InputString("Tiêu đề sách: ");
+            id = ViewHelp.InputInt("Mã định danh của sách: ");
+            publisher = ViewHelp.InputString("Nhà xuất bản: ");
             yearRelease = ViewHelp.InputInt("Năm xuất bản: ");
             edition = ViewHelp.InputInt("Tái bản: ");
             description = ViewHelp.InputString("Mô tả: ");

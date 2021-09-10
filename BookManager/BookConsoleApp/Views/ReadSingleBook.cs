@@ -13,11 +13,11 @@ namespace BookConsoleApp.Views
         {
             _model = new Book
             {
-                BookTitle = "Unknown Title",
-                Description = "Unknown Description",
+                BookTitle = "Chưa có tiêu đề",
+                Description = "Không có mô tả",
                 Edition = 0,
                 IdBook = 0,
-                Publisher = "Unknown Publisher",
+                Publisher = "Chưa có nhà xuất bản sách",
                 YearRealease = 1999
             };
         }
@@ -31,17 +31,17 @@ namespace BookConsoleApp.Views
         {
             if (_model == null)
             {
-                ViewHelp.WriteLine("No Book Found", ConsoleColor.Red);
+                ViewHelp.WriteLine("Không tìm thấy sách!", ConsoleColor.Red);
                 return;
             }
             
-            ViewHelp.WriteLine("Book Detail Info: ", ConsoleColor.Green);
+            ViewHelp.WriteLine("Thông tin chi tiết của sách: ", ConsoleColor.Green);
             
-            Console.WriteLine($"Title: {_model.BookTitle}");
-            Console.WriteLine($"ID: {_model.IdBook}");
-            Console.WriteLine($"Publisher: {_model.Publisher}");
-            Console.WriteLine($"Year Release: {_model.YearRealease}");
-            Console.WriteLine($"Edition: {_model.Edition}");
+            Console.WriteLine($"Tiêu đề sách: {_model.BookTitle}");
+            Console.WriteLine($"Mã số định danh: {_model.IdBook}");
+            Console.WriteLine($"Nhà xuất bản: {_model.Publisher}");
+            Console.WriteLine($"Năm xuất bản: {_model.YearRealease}");
+            Console.WriteLine($"Tái bản: {_model.Edition}");
         }
     }
 }

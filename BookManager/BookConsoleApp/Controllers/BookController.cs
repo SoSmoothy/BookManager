@@ -2,12 +2,19 @@
 {
     using BookConsoleApp.Models;
     using BookConsoleApp.Views;
-    public class BookController
+    using DataServices;
+    internal class BookController
     {
-        public void Single()
+        protected Repository Repository;
+
+        public BookController(SimpleDataAccess context)
         {
-            Book book = new Book("Ối dồi ôi", 1, "Kim Đồng", 2021, 1, "Hello World");
-            ReadSingleBook readSingleBook = new ReadSingleBook(book);
+            Repository = new Repository(context);
+        }
+        public void Single(int id)
+        {
+            var model = Repository.Select(id);
+            ReadSingleBook readSingleBook = new ReadSingleBook(model);
             readSingleBook.Read();
         }
 
@@ -17,11 +24,19 @@
             createBook.Render();
         }
 
-        public void Update()
+        public void Update(int id)
         {
-            Book book = new Book();
-            BookUpdateView bookUpdateView = new BookUpdateView(book);
+            var model = Repository.Select(id);
+            BookUpdateView bookUpdateView = new BookUpdateView(model);
             bookUpdateView.Render();
+        }
+
+        public void List()
+        {
+            var model = Repository.Select();
+
+            BookListView bookListView = new BookListView(model);
+            bookListView.Render();
         }
     }
 }

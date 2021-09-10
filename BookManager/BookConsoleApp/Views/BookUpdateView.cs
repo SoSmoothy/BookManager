@@ -15,13 +15,13 @@ namespace BookConsoleApp.Views
 
         public void Render()
         {
-            ViewHelp.WriteLine("Update Book Infomation: ", ConsoleColor.Green);
+            ViewHelp.WriteLine("Cập nhật và thay đổi thông tin sách: ", ConsoleColor.Green);
 
-            var title = ViewHelp.InputString("Title: ", Model.BookTitle);
-            var id = ViewHelp.InputInt("ID: ", Model.IdBook);
-            var publisher = ViewHelp.InputString("Nhà Xuất Bản: ", Model.Publisher);
-            var yearRelease = ViewHelp.InputInt("Năm Xuất Bản: ", Model.YearRealease);
-            var edition = ViewHelp.InputInt("Tái Bản: ", Model.Edition);
+            var title = ViewHelp.InputString("Tiêu đề của sách: ", Model.BookTitle);
+            var id = ViewHelp.InputInt("Mã số định danh của sách: ", Model.IdBook);
+            var publisher = ViewHelp.InputString("Nhà xuất Bản: ", Model.Publisher);
+            var yearRelease = ViewHelp.InputInt("Năm xuất Bản: ", Model.YearRealease);
+            var edition = ViewHelp.InputInt("Tái bản: ", Model.Edition);
             var description = ViewHelp.InputString("Mô tả: ", Model.Description);
         }
     }
