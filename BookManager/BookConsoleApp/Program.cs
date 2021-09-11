@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using BookConsoleApp.Framework;
 
 namespace BookConsoleApp
 {
@@ -12,34 +13,39 @@ namespace BookConsoleApp
             Console.OutputEncoding = Encoding.UTF8;
             SimpleDataAccess context = new SimpleDataAccess();
             BookController bookController = new BookController(context);
+            
+            Router.Instance.Register("about", About);
+            Router.Instance.Register("help", Help);
 
             while (true)
             {
-                Console.Write("Request> ");
+                ViewHelp.Write("# Request >> ", ConsoleColor.Green);
                 string request = Console.ReadLine();
 
-                switch (request)
-                {
-                    case "single":
-                        bookController.Single(1);
-                        break;
-                    case "create":
-                        bookController.Create();
-                        break;
-                    case "update":
-                        bookController.Update(1);
-                        break;
-                    case "list":
-                        bookController.List();
-                        break;
-                    case "clear":
-                        Console.Clear();
-                        break;
-                    default:
-                        Console.WriteLine("Error 404");
-                        break;
-                }
+                Router.Instance.Forward(request);
+                Console.WriteLine();
             }
+        }
+
+        private static void About(Parameter parameter)
+        {
+            ViewHelp.WriteLine("Book Manager ver 1", ConsoleColor.Green);
+            ViewHelp.WriteLine("By PAD2k2", ConsoleColor.Cyan);
+        }
+
+        private static void Help(Parameter parameter)
+        {
+            if (parameter == null)
+            {
+                ViewHelp.WriteLine("Commands: ", ConsoleColor.Green);
+                ViewHelp.WriteLine(Router.Instance.GetRoutes(), ConsoleColor.Green);
+                ViewHelp.WriteLine("type: help ? cmd=<command>");
+                return;
+            }
+
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            var cmd = parameter["cmd"].ToLower();
+            ViewHelp.WriteLine(Router.Instance.GetHelp(cmd));
         }
     }
 }
