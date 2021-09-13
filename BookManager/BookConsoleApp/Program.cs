@@ -14,8 +14,25 @@ namespace BookConsoleApp
             SimpleDataAccess context = new SimpleDataAccess();
             BookController bookController = new BookController(context);
             
-            Router.Instance.Register("about", About);
-            Router.Instance.Register("help", Help);
+            Router r = Router.Instance;
+            r.Register("about", About);
+            r.Register("help", Help);
+            r.Register(
+                route: "create",
+                action: r => bookController.Create(),
+                help: "[create]\r\nTạo sách mới");
+            r.Register(
+                route: "update",
+                action: p => bookController.Update(p["id"].ToInt()),
+                help: "[update ? id = <value>]\r\nTìm và sửa sách");
+            r.Register(
+                route: "read",
+                action: p => bookController.Single(p["id"].ToInt()),
+                help: "[read ? id = <value>]\r\nĐọc sách dựa vào ID của sách");
+            r.Register(
+                route: "list",
+                action: p => bookController.List(),
+                help: "[list]\r\nXem tất cả những sách hiện đang có");
 
             while (true)
             {
