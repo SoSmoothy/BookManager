@@ -43,5 +43,13 @@ namespace BookConsoleApp.Views
             Console.WriteLine($"Năm xuất bản: {_model.YearRealease}");
             Console.WriteLine($"Tái bản: {_model.Edition}");
         }
+        
+        public void RenderToFile(string path)
+        {
+            ViewHelp.WriteLine($"Saving data to file '{path}'");
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(_model);
+            System.IO.File.WriteAllText(path, json);
+            ViewHelp.WriteLine("Done!");
+        }
     }
 }

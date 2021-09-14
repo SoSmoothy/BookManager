@@ -33,6 +33,15 @@ namespace BookConsoleApp
                 route: "list",
                 action: p => bookController.List(),
                 help: "[list]\r\nXem tất cả những sách hiện đang có");
+            
+            r.Register(
+                route: "list file",
+                action: p => bookController.List(p["path"]),
+                help: "[list file ? path = <value>]\r\nHiển thị tất cả sách");
+            r.Register(
+                route: "read file",
+                action: p => bookController.Single(p["id"].ToInt(), p["path"]),
+                help: "[read file ? id = <value> & path = <value>]");
 
             while (true)
             {

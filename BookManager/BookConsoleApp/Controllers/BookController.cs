@@ -11,10 +11,15 @@
         {
             Repository = new Repository(context);
         }
-        public void Single(int id)
+        public void Single(int id, string path = "")
         {
             var model = Repository.Select(id);
             ReadSingleBook readSingleBook = new ReadSingleBook(model);
+            
+            if(!string.IsNullOrEmpty(path)) { 
+                readSingleBook.RenderToFile(path);
+                return;
+            }
             readSingleBook.Read();
         }
 
@@ -31,11 +36,15 @@
             bookUpdateView.Render();
         }
 
-        public void List()
+        public void List(string path = "")
         {
             var model = Repository.Select();
-
             BookListView bookListView = new BookListView(model);
+            if (!string.IsNullOrEmpty(path))
+            {
+                bookListView.RenderToFile(path);
+                return;
+            }
             bookListView.Render();
         }
     }
